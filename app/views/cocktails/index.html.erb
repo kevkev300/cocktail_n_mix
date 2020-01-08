@@ -1,0 +1,12 @@
+<h1>This is Cocktail 'n' Mix!</h1>
+<p>To be created...</p>
+<ul>
+  <%= @cocktails.each do |cocktail| %>
+    <li>
+      <%= cocktail.name %>
+      <%=  cocktail.images.each do |image| %>
+        <%= cl_image_tag image.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
