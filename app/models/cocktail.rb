@@ -1,4 +1,5 @@
 class Cocktail < ApplicationRecord
   has_many :favorites
-  belongs_to :user, optional: true
+  has_many :doses
+  belongs_to :user
 end
