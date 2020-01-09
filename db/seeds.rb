@@ -5,6 +5,8 @@ puts 'Destroying all the data...'
 User.destroy_all
 Cocktail.destroy_all
 Ingredient.destroy_all
+Favorite.destroy_all
+Dose.destroy_all
 
 
 # create users with cocktails & favorites
@@ -23,14 +25,14 @@ avatars = { phil: 'https://www.tvovermind.com/wp-content/uploads/2017/06/phil-du
             claire: 'https://entertainment.unitymedia.de/wp-content/uploads/2019/03/Modern-Family-Julie-Bowen-696x464.jpg',
             luke: 'https://entertainment.unitymedia.de/wp-content/uploads/2019/03/Modern-Family-Nolan-Gould-696x464.jpg' }
 
-names.each do |name|
+names.each do |user_name|
   user = User.new
-  user.email = "#{name}@gmail.com"
+  user.email = "#{user_name}@gmail.com"
   user.password = '123456'
   user.save
 
-  file = URI.open(name.to_sym)
-  user.avatar.attach(io: file, filename: "#{name}.png", content_type: 'image/png')
+  file = URI.open(avatars[user_name.to_sym])
+  user.avatar.attach(io: file, filename: "#{user_name}.png", content_type: 'image/png')
 end
 puts "#{User.count} Users created!"
 sleep(1)
@@ -61,9 +63,9 @@ Dose.create(amount: 4, unit: 'tbs', cocktail: mojito, ingredient: crushed_ice)
 Dose.create(amount: 2, unit: 'tsp', cocktail: mojito, ingredient: brown_sugar)
 Dose.create(amount: 8, unit: 'leaves', cocktail: mojito, ingredient: fresh_mint_leaves)
 
-mojito.images.attach(io: File.open('../app/assets/images/mojito1.png'), filename: 'mojito1.png', content_type: 'image/jpg')
+mojito.photos.attach(io: File.open('/home/kevin/code/kevkev300/personal_projects/cocktail_n_mix/app/assets/images/mojito1.png'), filename: 'mojito1.png', content_type: 'image/jpg')
 
-mojito.images.attach(io: File.open('../app/assets/images/mojito2.png'), filename: 'mojito2.png', content_type: 'image/png')
+mojito.photos.attach(io: File.open('/home/kevin/code/kevkev300/personal_projects/cocktail_n_mix/app/assets/images/mojito2.png'), filename: 'mojito2.png', content_type: 'image/png')
 
 # Gin Tonic
 
