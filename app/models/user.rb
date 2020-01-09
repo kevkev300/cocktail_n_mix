@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  has_many :cocktails
-  has_many :favorites
+  has_many :cocktails, dependent: :nullify
+  has_many :favorites, dependent: :destroy
 end
