@@ -69,3 +69,5 @@ gem "devise", "~> 4.7"
 gem "cloudinary", "~> 1.13"
 
 gem "bootstrap", "~> 4.4"
+
+gem 'font-awesome-sass', '~> 5.6.1'
