@@ -99,7 +99,7 @@
 <row name="amount" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="type" null="1" autoincrement="0">
+<row name="unit" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="cocktail_id" null="1" autoincrement="0">
