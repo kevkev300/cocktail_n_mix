@@ -6,7 +6,7 @@
 <ul>
   <% @cocktails.each do |cocktail| %>
     <li>
-      <%= cocktail.name %> by <%= cl_image_tag cocktail.user.avatar.key, height: 100, width: 100, crop: :fill %> </br>
+      <%= cocktail.name %> by <%= cl_image_tag cocktail.user.avatar.key, class: "avatar avatar-large avatar-round" %> </br>
       <%  cocktail.photos.each do |photo| %>
         <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
