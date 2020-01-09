@@ -67,3 +67,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", "~> 4.7"
 
 gem "cloudinary", "~> 1.13"
+
+gem "bootstrap", "~> 4.4"
