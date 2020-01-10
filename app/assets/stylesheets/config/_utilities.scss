@@ -1,0 +1,53 @@
+// Basic utilities
+
+body {
+  all: unset;
+  background-color: $color-background;
+}
+
+.container {
+  margin-top: 90px;
+}
+
+
+// Fonts
+
+h1, h2, h3, h4 {
+  text-align: center;
+}
+
+h1, h2 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 39.06px;
+  color: $color-main;
+}
+
+h2 {
+  font-size: 31.25px;
+  color: $color-sec;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+p {
+  font-size: 20px;
+}
+
+a {
+  all: unset;
+  color: $color-main;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    all: unset;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    color: $color-main;
+    opacity: 0.6;
+  }
+}

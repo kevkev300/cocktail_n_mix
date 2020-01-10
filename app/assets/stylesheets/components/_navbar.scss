@@ -1,0 +1,71 @@
+.navbar-my {
+  width: 100%;
+  background-color: white;
+  border-bottom: 3px solid $light-gray;
+  padding: 15px;
+
+  position: fixed;
+  top: 0;
+  z-index: 1;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ul {
+    display: inline-block;
+  }
+
+  li {
+    font-size: 20px;
+  }
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+
+// left part of the navbar
+
+.logo-area {
+  font-size: 31.25px;
+  font-weight: bolder;
+  display: flex;
+  align-items: flex-start;
+}
+
+.page-name {
+  margin-left: 5px;
+}
+
+.page-name-right-part {
+  color: $color-main;
+}
+
+
+// right part of navbar
+
+#navbar-burger {
+  display: none;
+  font-size: 31.25px
+}
+
+.dropdown-menu > a {
+  padding-left: 15px;
+  font-size: 20px;
+  color: $color-main;
+}
+
+
+// Responsiveness
+
+@media(max-width: 576px) {
+  #navbar-burger {
+    display: block;
+  }
+
+  .page-name, .collapse-small {
+    display: none;
+  }
+}

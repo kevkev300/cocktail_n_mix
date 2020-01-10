@@ -1,0 +1,33 @@
+.btn-base {
+  border: 1px solid;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+
+  &:hover {
+    border: 1px solid;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+  }
+}
+
+.btn-main {
+  background-color: $color-main;
+  color: $light-gray;
+
+  &:hover {
+    background-color: $color-main;
+    color: $color-background;
+  }
+}
+
+.btn-ghost {
+  background-color: $color-background;
+  color: $color-main;
+
+  &:hover {
+    background-color: $color-background;
+    color: $color-main;
+  }
+}
