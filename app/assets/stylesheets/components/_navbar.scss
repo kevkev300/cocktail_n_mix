@@ -6,7 +6,7 @@
 
   position: fixed;
   top: 0;
-  // z-index: 1;
+  z-index: 1;
 
   display: flex;
   justify-content: space-between;
@@ -43,8 +43,29 @@
   color: $color-main;
 }
 
-.dropdown-menu a {
-  padding-left: 15px;
-  font-size: 20px;
+
+// right part of navbar
+
+#navbar-burger {
+  display: none;
+  font-size: 31.25px
 }
 
+.dropdown-menu > a {
+  padding-left: 15px;
+  font-size: 20px;
+  color: $color-main;
+}
+
+
+// Responsiveness
+
+@media(max-width: 576px) {
+  #navbar-burger {
+    display: block;
+  }
+
+  .page-name, .collapse-small {
+    display: none;
+  }
+}
