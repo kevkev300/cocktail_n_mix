@@ -40,9 +40,11 @@ p {
 a {
   all: unset;
   color: $color-main;
+  transition: opacity 0.3s ease;
 
   &:hover {
     all: unset;
+    transition: opacity 0.3s ease;
     cursor: pointer;
     color: $color-main;
     opacity: 0.6;
