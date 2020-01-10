@@ -1,6 +1,15 @@
+// Basic utilities
+
 body {
   all: unset;
+  background-color: $color-background;
 }
+
+.container {
+  margin-top: 90px;
+}
+
+// Fonts
 
 h1, h2, h3, h4 {
   text-align: center;
@@ -31,11 +40,10 @@ p {
 a {
   all: unset;
   color: $color-main;
-  font-size: 20px;
-
 
   &:hover {
     all: unset;
+    cursor: pointer;
     color: $color-sec;
   }
 }
