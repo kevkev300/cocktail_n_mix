@@ -44,6 +44,7 @@ a {
   &:hover {
     all: unset;
     cursor: pointer;
-    color: $color-sec;
+    color: $color-main;
+    opacity: 0.6;
   }
 }
