@@ -46,15 +46,28 @@
 
 // right part of navbar
 
+#navbar-burger, #navbarDropdown {
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.6;
+  }
+}
+
 #navbar-burger {
   display: none;
-  font-size: 31.25px
+  font-size: 31.25px;
 }
 
 .dropdown-menu > a {
   padding-left: 15px;
-  font-size: 20px;
   color: $color-main;
+
+  &:hover {
+    color: $color-main;
+    opacity: 0.6;
+  }
 }
 
 

@@ -1,7 +1,7 @@
 // Basic utilities
 
 body {
-  all: unset;
+  margin: 0px;
   background-color: $color-background;
 }
 
@@ -38,14 +38,15 @@ p {
   font-size: 20px;
 }
 
+
+// Handling 'a' tag
+
 a {
-  all: unset;
   color: $color-main;
   transition: opacity 0.3s ease;
 
   &:hover {
-    all: unset;
-    transition: opacity 0.3s ease;
+    text-decoration: none;
     cursor: pointer;
     color: $color-main;
     opacity: 0.6;
