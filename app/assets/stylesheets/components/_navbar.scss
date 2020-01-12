@@ -49,26 +49,14 @@
 #navbar-burger {
   display: none;
   font-size: 31.25px;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.dropdown-menu:hover {
-
 }
 
 .dropdown-menu > a {
   padding-left: 15px;
-  font-size: 20px;
   color: $color-main;
-  transition: opacity 0.3s ease;
 
   &:hover {
     color: $color-main;
-    transition: opacity 0.3s ease;
-    cursor: pointer;
     opacity: 0.6;
   }
 }
