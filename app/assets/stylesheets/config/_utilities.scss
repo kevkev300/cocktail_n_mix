@@ -47,6 +47,7 @@ a {
 
   &:hover {
     text-decoration: none;
+    cursor: pointer;
     color: $color-main;
     opacity: 0.6;
   }
