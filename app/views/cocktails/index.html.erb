@@ -1,17 +1,18 @@
 <h1>This is Cocktail 'n' Mix!</h1>
-<h2>this is an h2</h2>
-<h3>this is an h3</h3>
-<%= link_to "this is a link", "#" %>
-<p>To be created... </p>
-<a href="#" class="btn-base btn-main">this is a test button</a>
-<a href="#" class="btn-base btn-ghost">this is a test ghost button</a>
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li>
-      <%= cocktail.name %> by <%= cl_image_tag cocktail.user.avatar.key, class: "avatar avatar-large avatar-round" %> </br>
-      <%  cocktail.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+
+<div class="card-cocktail">
+  <div class="card-cocktail-photo-area">
+    <div class="card-cocktail-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://res.cloudinary.com/kl3000/image/upload/<%= @cocktails.first.photos.first.key %>)">
+      <%= @cocktails.first.name.capitalize! %>
+    </div>
+    <%= cl_image_tag @cocktails.first.user.avatar.key, class: "card-cocktail-user avatar avatar-large avatar-round avatar-bordered" %>
+  </div>
+  <div class="card-cocktail-infos">
+    <div>
+      <p>Favorited by: <%= @cocktails.first.favorites.count %></p>
+    </div>
+    <div class="favorited">
+      <i class="far fa-heart"></i>
+      <i class="fas fa-heart d-none"></i>
+    </div>
+</div>
