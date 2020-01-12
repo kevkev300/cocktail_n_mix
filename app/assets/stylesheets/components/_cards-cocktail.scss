@@ -1,0 +1,54 @@
+.card-cocktail {
+  overflow: hidden;
+  background: white;
+  width: 300px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+
+// upper part
+
+.card-cocktail-photo-area {
+  position: relative;
+}
+
+.card-cocktail-photo {
+  height: 180px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  letter-spacing: 0.2em;
+}
+
+.card-cocktail-user {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+}
+
+
+// lower part
+
+.card-cocktail-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.card-cocktail p, .favorited {
+  font-size: 18px;
+  opacity: .7;
+  margin: 0;
+}
+
