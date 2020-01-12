@@ -12,7 +12,10 @@
       <p>Favorited by: <%= @cocktails.first.favorites.count %></p>
     </div>
     <div class="favorited">
-      <i class="far fa-heart"></i>
-      <i class="fas fa-heart d-none"></i>
+      <% if current_user.favorites.any? { |favorite| favorite.cocktail == @cocktails.first } %>
+        <i class="fas fa-heart"></i>
+      <% else %>
+        <i class="far fa-heart"></i>
+      <% end %>
     </div>
 </div>
