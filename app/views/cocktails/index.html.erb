@@ -1,26 +1,41 @@
-<h1>This is Cocktail 'n' Mix!</h1>
+<!-- banner -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/75j_bL4BhU0);">
+  <div class="container">
+    <h1>Your personal cocktail manager.</h1></br>
+    <h3>Find. Create. Save.</h3></br>
+    <a class="btn-base btn-main" href="#cocktail-list">Find your cocktail</a>
+  </div>
+</div>
 
-<div class="card-grid">
-  <% @cocktails.each do |cocktail| %>
-    <div class="card-cocktail">
-      <div class="card-cocktail-photo-area">
-        <div class="card-cocktail-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://res.cloudinary.com/kl3000/image/upload/<%= cocktail.photos.first.key %>)">
-          <%= cocktail.name.capitalize! %>
+<div class="container mt-4">
+
+  <!-- list of cocktails -->
+  <div id="cocktail-list">
+    <h2>Which is your cocktail tonight?</h2>
+    <div class="card-grid">
+      <% @cocktails.each do |cocktail| %>
+        <div class="card-cocktail">
+          <div class="card-cocktail-photo-area">
+            <div class="card-cocktail-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://res.cloudinary.com/kl3000/image/upload/<%= cocktail.photos.first.key %>)">
+              <%= cocktail.name.capitalize! %>
+            </div>
+            <%= cl_image_tag cocktail.user.avatar.key, class: "card-cocktail-user avatar avatar-small avatar-round avatar-bordered" %>
+          </div>
+          <div class="card-cocktail-infos">
+            <div>
+              <p>Favorited by: <%= cocktail.favorites.count %></p>
+            </div>
+            <div class="favorited">
+              <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == cocktail } %>
+                <i class="fas fa-heart"></i>
+              <% else %>
+                <i class="far fa-heart"></i>
+              <% end %>
+            </div>
+          </div>
         </div>
-        <%= cl_image_tag cocktail.user.avatar.key, class: "card-cocktail-user avatar avatar-small avatar-round avatar-bordered" %>
-      </div>
-      <div class="card-cocktail-infos">
-        <div>
-          <p>Favorited by: <%= cocktail.favorites.count %></p>
-        </div>
-        <div class="favorited">
-          <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == cocktail } %>
-            <i class="fas fa-heart"></i>
-          <% else %>
-            <i class="far fa-heart"></i>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+
 </div>
