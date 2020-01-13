@@ -1,3 +1,25 @@
 <div class="container">
-  <h1>Show</h1>
+  <div class="card-detail">
+    <h1><%= @cocktail.name.titleize %></h1>
+
+    <div class="card-detail-body">
+      <div class="card-detail-photo">
+        <%= cl_image_tag @cocktail.photos.first.key %>
+      </div>
+
+      <div class="card-detail-info">
+        <% if @cocktail.user.avatar.attached? %>
+          <%= cl_image_tag @cocktail.user.avatar.key, class: "avatar avatar-large avatar-round dropdown-toggle" %>
+        <% end %>
+        <h3>Ingredients</h3>
+        <ul>
+          <% @cocktail.doses.each do |dose| %>
+            <li>
+              <p><strong><%= dose.ingredient.name %>:</strong> <%= dose.amount %> <%= dose.unit %> <%= dose.description %></p>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
