@@ -18,7 +18,11 @@
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
         </li>
         <li class="nav-item list-inline-item dropdown">
-          <%= cl_image_tag current_user.avatar.key, class: "avatar avatar-small avatar-round dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.avatar.attached? %>
+            <%= cl_image_tag current_user.avatar.key, class: "avatar avatar-small avatar-round dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag("https://cdn.pixabay.com/photo/2016/09/01/08/24/smiley-1635449_960_720.png", class: "avatar avatar-small avatar-round dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false)  %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
             <!-- add for small devises -->
