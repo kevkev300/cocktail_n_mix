@@ -4,7 +4,7 @@
     <div class="form-inputs">
       <%= f.input :ingredient %>
       <%= f.input :amount %>
-      <%= f.input :unit %>
+      <%= f.input :unit, collection: %w[cl ml l pieces tsp tbs leaves fill slices none dashes bottles] %>
       <%= f.input :description %>
 
       <div class="form-button">
