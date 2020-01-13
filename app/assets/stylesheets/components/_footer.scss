@@ -1,3 +1,5 @@
+// dependent on .main-container in _utilities.scss
+
 .footer {
   background-color: white;
   display: flex;
@@ -6,7 +8,12 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
+
 .footer-links {
   display: flex;
   align-items: center;
@@ -25,10 +32,14 @@
 
 // Responsiveness
 
-@media(max-width: 458px) {
+@media(max-width: 444px) {
   .footer {
     display: grid;
     grid-template-column: 1fr;
     justify-content: center;
+  }
+
+  .footer-copyright {
+    text-align: center;
   }
 }
