@@ -6,6 +6,8 @@
   margin-right: auto;
   margin-left: auto;
   max-width: 450px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .form-links a {
@@ -27,4 +29,9 @@
   color: red;
   text-decoration: underline;
   font-weight: 100;
+}
+
+.form-base p {
+  font-weight: 400;
+  margin-top: 50px;
 }
