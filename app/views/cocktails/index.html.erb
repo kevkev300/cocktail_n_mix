@@ -14,7 +14,7 @@
           <p>Favorited by: <%= cocktail.favorites.count %></p>
         </div>
         <div class="favorited">
-          <% if current_user.favorites.any? { |favorite| favorite.cocktail == cocktail } %>
+          <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == cocktail } %>
             <i class="fas fa-heart"></i>
           <% else %>
             <i class="far fa-heart"></i>
