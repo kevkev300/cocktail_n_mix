@@ -42,3 +42,15 @@
 .card-detail-info h3, p {
   text-align: left;
 }
+
+.add-ingredient {
+  width: 200px;
+
+  .form-group {
+    margin-bottom: 5px;
+  }
+
+  label {
+    margin-bottom: 0px;
+  }
+}

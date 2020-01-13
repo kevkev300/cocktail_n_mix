@@ -19,6 +19,11 @@
             </li>
           <% end %>
         </ul>
+
+        <!-- let user add new doses if cocktail belongs to user -->
+
+        <%= render 'form_dose' if current_user == @cocktail.user %>
+
       </div>
     </div>
   </div>
