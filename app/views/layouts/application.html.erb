@@ -13,11 +13,9 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <div class="container">
       <%= yield %>
       <!-- <p class="notice"><%= notice %></p> -->
       <!-- <p class="alert"><%= alert %></p> -->
-    </div>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag "application" %>
