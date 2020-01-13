@@ -1,35 +1,32 @@
 <div class="container">
-  <div class="account_form">
+  <div class="form-base">
     <h2>Log in</h2>
 
-      <div class="form-base">
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="form-inputs">
-            <%= f.input :email,
-              required: false,
-              autofocus: true,
-              input_html: { autocomplete: "email" },
-              placeholder: "alan.turing@enigma.com"%>
-          </div>
-
-
-          <div class="form-inputs" >
-            <%= f.input :password,
-              required: false,
-              input_html: { autocomplete: "current-password" },
-              placeholder: "●●●●●●●" %>
-          </div>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable?%>
-        </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, "LOG IN", class: "btn-base btn-main form-button", style: "margin-bottom: 20px;" %>
-        </div>
-      <% end %>
-
-      <div class="form-links">
-        <%= render "devise/shared/links" %>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email,
+        required: false,
+        autofocus: true,
+        input_html: { autocomplete: "email" },
+        placeholder: "alan.turing@enigma.com"%>
       </div>
+
+
+      <div class="form-inputs" >
+        <%= f.input :password,
+        required: false,
+        input_html: { autocomplete: "current-password" },
+        placeholder: "●●●●●●●" %>
+      </div>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable?%>
+
+      <div class="form-actions">
+        <%= f.button :submit, "LOG IN", class: "btn-base btn-main form-button", style: "margin-bottom: 20px;" %>
+      </div>
+    <% end %>
+
+    <div class="form-links">
+      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

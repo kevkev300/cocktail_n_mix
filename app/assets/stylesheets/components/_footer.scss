@@ -28,10 +28,14 @@
 
 // Responsiveness
 
-@media(max-width: 458px) {
+@media(max-width: 444px) {
   .footer {
     display: grid;
     grid-template-column: 1fr;
     justify-content: center;
+  }
+
+  .footer-copyright {
+    text-align: center;
   }
 }

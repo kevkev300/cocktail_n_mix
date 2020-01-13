@@ -1,11 +1,16 @@
 .form-base {
   text-align: center;
   font-weight: bold;
+  padding: 20px;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 450px;
 }
 
 .form-links a {
   color: $color-main;
-  font-weight:lighter
+  font-weight: lighter;
 }
 
 .form-control {
