@@ -1,7 +1,7 @@
 <div id="cocktail-list">
     <div class="card-grid">
       <% @cocktails.each do |cocktail| %>
-        <%= link_to cocktail_path(cocktail), :action => 'go' do %>
+        <%= link_to cocktail_path(cocktail) do %>
           <div class="card-cocktail">
             <div class="card-cocktail-photo-area">
               <% if cocktail.photos.attached? %>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :doses, only: [:destroy]
   get 'favorites', to: 'cocktails#favorites', as: :favorites
+  get 'my_cocktails', to: 'cocktails#my_cocktails', as: :my
 
   resources :cocktails, only: [:show, :new, :create, :destroy, :favorites] do
     resources :doses, only: [:create]

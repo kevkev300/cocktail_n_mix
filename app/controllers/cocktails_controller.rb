@@ -37,6 +37,10 @@ class CocktailsController < ApplicationController
 
   # custom methods
 
+  def my_cocktails
+    @cocktails = Cocktail.where(user: current_user)
+  end
+
   def favorites
     favorites = current_user.favorites
     @cocktails = favorites.map { |favorite| favorite.cocktail }
