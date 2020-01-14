@@ -60,6 +60,10 @@
   font-size: 31.25px;
 }
 
+.collapse-big {
+  display: none;
+}
+
 .dropdown-menu > a {
   padding-left: 15px;
   color: $color-main;
@@ -74,7 +78,7 @@
 // Responsiveness
 
 @media(max-width: 576px) {
-  #navbar-burger {
+  #navbar-burger, .collapse-big {
     display: block;
   }
 

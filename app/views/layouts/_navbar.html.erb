@@ -17,6 +17,9 @@
         <li class="nav-item list-inline-item collapse-small">
           <%= link_to "Create Cocktail", new_cocktail_path %>
         </li>
+        <li class="nav-item list-inline-item collapse-small">
+          <%= link_to "Favorites", favorites_path %>
+        </li>
         <li class="nav-item list-inline-item dropdown">
           <% if current_user.avatar.attached? %>
             <%= cl_image_tag current_user.avatar.key, class: "avatar avatar-small avatar-round dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -26,7 +29,8 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
             <!-- add for small devises -->
-            <%= link_to "Create Cocktail", new_cocktail_path %>
+            <%= link_to "Create Cocktail", new_cocktail_path, class: "dropdown-item collapse-big" %>
+            <%= link_to "Favorites", favorites_path, class: "dropdown-item collapse-big" %>
             <%= link_to "Account", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
 

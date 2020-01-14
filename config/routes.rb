@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   root to: 'cocktails#index'
 
   resources :doses, only: [:destroy]
+  get 'favorites', to: 'cocktails#favorites', as: :favorites
 
-  resources :cocktails, only: [:show, :new, :create, :destroy] do
+  resources :cocktails, only: [:show, :new, :create, :destroy, :favorites] do
     resources :doses, only: [:create]
   end
 end

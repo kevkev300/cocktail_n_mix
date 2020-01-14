@@ -1,6 +1,8 @@
 class CocktailsController < ApplicationController
   before_action :find_cocktail, only: [:show, :destroy]
 
+  # basic CRUD
+
   def index
     @cocktails = Cocktail.all
   end
@@ -31,6 +33,13 @@ class CocktailsController < ApplicationController
 
     Cocktail.delete(@cocktail.id)
     redirect_to root_path
+  end
+
+  # custom methods
+
+  def favorites
+    favorites = current_user.favorites
+    @cocktails = favorites.map { |favorite| favorite.cocktail }
   end
 
   private
