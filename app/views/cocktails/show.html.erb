@@ -4,7 +4,11 @@
 
     <div class="card-detail-body">
       <div class="card-detail-photo">
-        <%= cl_image_tag @cocktail.photos.first.key %>
+        <% if @cocktail.photos.attached? %>
+          <%= cl_image_tag @cocktail.photos.first.key %>
+        <% else %>
+          <%= image_tag("https://cdn.pixabay.com/photo/2018/03/22/02/37/background-3249063_960_720.png") %>
+        <% end %>
       </div>
 
       <div class="card-detail-info">
@@ -15,15 +19,40 @@
         <ul>
           <% @cocktail.doses.each do |dose| %>
             <li>
-              <p><strong><%= dose.ingredient.name %>:</strong> <%= dose.amount %> <%= dose.unit %> <%= dose.description %></p>
+              <p><strong><%= dose.ingredient.name %>:</strong> <%= dose.amount %> <%= dose.unit %> <%= dose.description %>
+
+                <!-- let owner of cocktail destroy doses -->
+                <%= link_to dose_path(dose), data: { confirm: "Are you sure you want that ingredient?" }, method: :delete do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %></p>
             </li>
           <% end %>
         </ul>
 
         <!-- let user add new doses if cocktail belongs to user -->
 
-        <%= render 'form_dose' if current_user == @cocktail.user %>
+        <% if current_user == @cocktail.user %>
+          <p>It's your cocktail, so you can add ingredients</p>
+          <div class="add-ingredient">
+            <%= simple_form_for [@cocktail, @dose] do |f| %>
+              <div class="form-inputs">
+                <%= f.input :ingredient %>
+                <%= f.input :amount %>
+                <%= f.input :unit, collection: %w[cl ml l pieces tsp tbs leaves fill slices none dashes bottles] %>
+                <%= f.input :description %>
 
+                <div class="form-button">
+                  <%= f.button :submit, "Add ingredient", class: "btn-base btn-main form-button" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+        <!-- let the owner of the cocktail delete the cocktail -->
+        <%= link_to cocktail_path(@cocktail), data: { confirm: "Are you sure you want your #{@cocktail.name.titleize}?" }, method: :delete do %>
+          Delete the cocktail...</i>
+        <% end %>
       </div>
     </div>
   </div>

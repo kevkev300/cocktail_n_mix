@@ -43,6 +43,12 @@
   text-align: left;
 }
 
+.card-detail-info a {
+  color: $gray;
+  opacity: 0.3;
+  margin-left: 10px;
+}
+
 .add-ingredient {
   width: 200px;
 

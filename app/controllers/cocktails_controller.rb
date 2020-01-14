@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-  before_action :find_cocktail, only: [:show]
+  before_action :find_cocktail, only: [:show, :destroy]
 
   def index
     @cocktails = Cocktail.all
@@ -25,6 +25,14 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def destroy
+    doses = Dose.where(cocktail: @cocktail)
+    delete_dependent(doses)
+
+    Cocktail.delete(@cocktail.id)
+    redirect_to root_path
+  end
+
   private
 
   def cocktail_params
@@ -33,5 +41,9 @@ class CocktailsController < ApplicationController
 
   def find_cocktail
     @cocktail = Cocktail.find(params[:id])
+  end
+
+  def delete_dependent(arr)
+    arr.each { |item| item.delete }
   end
 end
