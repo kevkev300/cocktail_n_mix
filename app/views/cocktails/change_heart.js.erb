@@ -1,0 +1,12 @@
+var changeHeart = () => {
+  var basicObject = document.getElementById(<%= @cocktail.id %>);
+  var heartOne = basicObject.querySelector(".favorited");
+  var heartTwo = basicObject.querySelector(".favorited").nextElementSibling;
+
+  console.log(heartOne);
+  console.log(heartTwo);
+  heartOne.classList.toggle("d-none");
+  heartTwo.classList.toggle("d-none")
+}
+
+changeHeart();

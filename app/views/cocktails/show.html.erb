@@ -2,7 +2,7 @@
   <div class="card-detail">
     <h1> <%= @cocktail.name.titleize %> </h1>
     <h3>
-      <%= link_to like_unlike_cocktail_path(@cocktail), remote: true do %>
+      <%= link_to like_unlike_cocktail_path(@cocktail), id: @cocktail.id, remote: true do %>
         <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == @cocktail } %>
           <i class="fas fa-heart favorited"></i>
           <i class="far fa-heart favorited d-none"></i>

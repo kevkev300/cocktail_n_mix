@@ -20,11 +20,15 @@
               <div>
                 <p>Favorited by: <%= cocktail.favorites.count %></p>
               </div>
-              <div class="favorited">
-                <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == cocktail } %>
-                  <i class="fas fa-heart"></i>
-                <% else %>
-                  <i class="far fa-heart"></i>
+              <div>
+                <%= link_to like_unlike_cocktail_path(cocktail), id: cocktail.id, remote: true do %>
+                  <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == @cocktail } %>
+                    <i class="fas fa-heart favorited"></i>
+                    <i class="far fa-heart favorited d-none"></i>
+                  <% else %>
+                    <i class="fas fa-heart favorited d-none"></i>
+                    <i class="far fa-heart favorited"></i>
+                  <% end %>
                 <% end %>
               </div>
             </div>
