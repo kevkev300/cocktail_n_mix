@@ -4,16 +4,25 @@
 
     <div class="card-detail-body">
       <div class="card-detail-photo">
-        <% if @cocktail.photos.attached? %>
-          <%= cl_image_tag @cocktail.photos.first.key %>
-        <% else %>
-          <%= image_tag("https://cdn.pixabay.com/photo/2018/03/22/02/37/background-3249063_960_720.png") %>
-        <% end %>
+        <div class="favorited">
+          <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == @cocktail } %>
+            <i class="fas fa-heart"></i>
+          <% else %>
+            <i class="far fa-heart"></i>
+          <% end %>
+        </div>
+        <div class="card-detail-header-section">
+          <% if @cocktail.photos.attached? %>
+            <%= cl_image_tag @cocktail.photos.first.key %>
+          <% else %>
+            <%= image_tag("https://cdn.pixabay.com/photo/2018/03/22/02/37/background-3249063_960_720.png") %>
+          <% end %>
+        </div>
       </div>
 
       <div class="card-detail-info">
         <% if @cocktail.user.avatar.attached? %>
-          <%= cl_image_tag @cocktail.user.avatar.key, class: "avatar avatar-large avatar-round dropdown-toggle" %>
+          <%= cl_image_tag @cocktail.user.avatar.key, class: "avatar avatar-large avatar-round  dropdown-toggle" %>
         <% end %>
         <h3>Ingredients</h3>
         <ul>

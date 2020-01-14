@@ -17,14 +17,19 @@
 .card-detail-photo {
   margin-left: 20px;
   margin-bottom: 20px;
-}
 
-.card-detail-photo img {
-  max-height: 400px;
-  max-width: 400px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 5px;
+  & i {
+    font-size: 31.25px;
+    color: $color-main;
+  }
+
+  & img {
+    max-height: 400px;
+    max-width: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+  }
 }
 
 .card-detail-info {
