@@ -9,5 +9,8 @@ Rails.application.routes.draw do
 
   resources :cocktails, only: [:show, :new, :create, :destroy, :favorites] do
     resources :doses, only: [:create]
+    member do
+      get 'like_unlike', to: 'cocktails#like_unlike', as: :like_unlike
+    end
   end
 end

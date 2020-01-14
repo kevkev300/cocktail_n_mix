@@ -1,13 +1,17 @@
 <div class="container">
   <div class="card-detail">
-    <h1 class="favorited">
-      <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == @cocktail } %>
-        <i class="fas fa-heart"></i>
-      <% else %>
-        <i class="far fa-heart"></i>
+    <h1> <%= @cocktail.name.titleize %> </h1>
+    <h3>
+      <%= link_to like_unlike_cocktail_path(@cocktail), remote: true do %>
+        <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == @cocktail } %>
+          <i class="fas fa-heart favorited"></i>
+          <i class="far fa-heart favorited d-none"></i>
+        <% else %>
+          <i class="fas fa-heart favorited d-none"></i>
+          <i class="far fa-heart favorited"></i>
+        <% end %>
       <% end %>
-      <%= @cocktail.name.titleize %>
-    </h1>
+    </h3>
 
     <div class="card-detail-body">
       <div class="card-detail-photo">
@@ -31,9 +35,11 @@
               <p><strong><%= dose.ingredient.name %>:</strong> <%= dose.amount %> <%= dose.unit %> <%= dose.description %>
 
                 <!-- let owner of cocktail destroy doses -->
-                <%= link_to dose_path(dose), data: { confirm: "Are you sure you want that ingredient?" }, method: :delete do %>
-                  <i class="fas fa-trash-alt"></i>
-                <% end %></p>
+                <% if current_user == @cocktail.user %>
+                  <%= link_to dose_path(dose), data: { confirm: "Are you sure you want that ingredient?" }, method: :delete do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %></p>
+                <% end %>
             </li>
           <% end %>
         </ul>

@@ -5,3 +5,9 @@ import "bootstrap";
 // if (document.querySelector(".card-detail")) {
 //   autocompleteIngredients();
 // }
+
+// set favorite on all cards
+// import { setInitialFavorite } from '../set_favorite.js';
+// if (document.querySelector(".favorited")) {
+//   setInitialFavorite();
+// }
