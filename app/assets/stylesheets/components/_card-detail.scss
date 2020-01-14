@@ -19,7 +19,6 @@
   margin-bottom: 20px;
 
   & i {
-    font-size: 31.25px;
     color: $color-main;
   }
 
@@ -36,22 +35,22 @@
   margin-left: 40px;
   flex-grow: 1;
   position: relative;
-}
 
-.card-detail-info img{
-  position: absolute;
-  right: 20px;
-  top: -40px;
-}
+  & img {
+    position: absolute;
+    right: 20px;
+    top: -40px;
+  }
 
-.card-detail-info h3, p {
-  text-align: left;
-}
+  & h3, p {
+    text-align: left;
+  }
 
-.card-detail-info a {
-  color: $gray;
-  opacity: 0.3;
-  margin-left: 10px;
+  & a {
+    color: $gray;
+    opacity: 0.3;
+    margin-left: 10px;
+  }
 }
 
 .add-ingredient {

@@ -1,16 +1,16 @@
 <div class="container">
   <div class="card-detail">
-    <h1><%= @cocktail.name.titleize %></h1>
+    <h1 class="favorited">
+      <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == @cocktail } %>
+        <i class="fas fa-heart"></i>
+      <% else %>
+        <i class="far fa-heart"></i>
+      <% end %>
+      <%= @cocktail.name.titleize %>
+    </h1>
 
     <div class="card-detail-body">
       <div class="card-detail-photo">
-        <div class="favorited">
-          <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == @cocktail } %>
-            <i class="fas fa-heart"></i>
-          <% else %>
-            <i class="far fa-heart"></i>
-          <% end %>
-        </div>
         <div class="card-detail-header-section">
           <% if @cocktail.photos.attached? %>
             <%= cl_image_tag @cocktail.photos.first.key %>
@@ -59,8 +59,10 @@
         <% end %>
 
         <!-- let the owner of the cocktail delete the cocktail -->
-        <%= link_to cocktail_path(@cocktail), data: { confirm: "Are you sure you want your #{@cocktail.name.titleize}?" }, method: :delete do %>
-          Delete the cocktail...</i>
+        <% if current_user == @cocktail.user %>
+          <%= link_to cocktail_path(@cocktail), data: { confirm: "Are you sure you want your #{@cocktail.name.titleize}?" }, method: :delete do %>
+            Delete the cocktail...</i>
+          <% end %>
         <% end %>
       </div>
     </div>
