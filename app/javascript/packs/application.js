@@ -1,4 +1,5 @@
 import "bootstrap";
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 // autocomplete function for dose creation
 // import { autocompleteIngredients } from 'autocomplete_ingredients'
