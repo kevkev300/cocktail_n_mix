@@ -22,7 +22,7 @@
               </div>
               <div>
                 <%= link_to like_unlike_cocktail_path(cocktail), id: cocktail.id, remote: true do %>
-                  <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == @cocktail } %>
+                  <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == cocktail } %>
                     <i class="fas fa-heart favorited"></i>
                     <i class="far fa-heart favorited d-none"></i>
                   <% else %>
