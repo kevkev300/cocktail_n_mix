@@ -74,7 +74,6 @@ sleep(1)
 
 # ---Creating Cocktails & doses---
 puts 'Starting to create cocktails & doses...'
-TYPES = %w[cl piece tsp tbs leaves fill slice none ml dashes bottle l]
 
 # Mojito
 mojito = Cocktail.create(name: 'mojito', user: User.all.sample)
