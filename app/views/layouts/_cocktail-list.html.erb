@@ -1,0 +1,40 @@
+<div id="cocktail-list">
+    <div class="card-grid">
+      <% @cocktails.each do |cocktail| %>
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="card-cocktail">
+            <div class="card-cocktail-photo-area">
+              <% if cocktail.photos.attached? %>
+                <div class="card-cocktail-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://res.cloudinary.com/kl3000/image/upload/<%= cocktail.photos.first.key %>)">
+              <% else %>
+                <div class="card-cocktail-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2018/03/22/02/37/background-3249063_960_720.png)">
+              <% end %>
+                <%= cocktail.name.titleize %>
+              </div>
+              <% if cocktail.user.avatar.attached? %>
+                <%= cl_image_tag cocktail.user.avatar.key, class: "card-cocktail-user avatar avatar-small avatar-round dropdown-toggle" %>
+              <% else %>
+                <%= image_tag("https://cdn.pixabay.com/photo/2016/09/01/08/24/smiley-1635449_960_720.png", class: "card-cocktail-user avatar avatar-small avatar-round dropdown-toggle") %>
+              <% end %>          </div>
+            <div class="card-cocktail-infos">
+              <div>
+                <p>Favorited by: <%= cocktail.favorites.count %></p>
+              </div>
+              <div>
+                <%= link_to like_unlike_cocktail_path(cocktail), id: cocktail.id, remote: true do %>
+                  <% if current_user && current_user.favorites.any? { |favorite| favorite.cocktail == cocktail } %>
+                    <i class="fas fa-heart favorited"></i>
+                    <i class="far fa-heart favorited d-none"></i>
+                  <% else %>
+                    <i class="fas fa-heart favorited d-none"></i>
+                    <i class="far fa-heart favorited"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

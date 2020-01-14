@@ -1,5 +1,7 @@
 class CocktailsController < ApplicationController
-  before_action :find_cocktail, only: [:show, :destroy]
+  before_action :find_cocktail, only: [:show, :destroy, :like_unlike]
+
+  # basic CRUD
 
   def index
     @cocktails = Cocktail.all
@@ -31,6 +33,28 @@ class CocktailsController < ApplicationController
 
     Cocktail.delete(@cocktail.id)
     redirect_to root_path
+  end
+
+  # custom methods
+
+  def my_cocktails
+    @cocktails = Cocktail.where(user: current_user)
+  end
+
+  def favorites
+    favorites = current_user.favorites
+    @cocktails = favorites.map { |favorite| favorite.cocktail }
+  end
+
+  def like_unlike
+    if current_user.favorites.any? { |favorite| favorite.cocktail == @cocktail}
+      Favorite.delete(Favorite.where(cocktail: @cocktail, user: current_user).first.id)
+    else
+      Favorite.create(user: current_user, cocktail: @cocktail)
+    end
+
+    render :change_heart
+    # redirect_back fallback_location: root_path
   end
 
   private
