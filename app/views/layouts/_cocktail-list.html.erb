@@ -13,9 +13,9 @@
           <%= cocktail.name.titleize %>
         </div>
 
-        <% if cocktail.user.avatar.attached? %>
+        <% if cocktail.user && cocktail.user.avatar.attached? %>
           <%= cl_image_tag cocktail.user.avatar.key, class: "card-cocktail-user avatar avatar-small avatar-round dropdown-toggle" %></div>
-        <% elsif cocktail.user %>
+        <% else cocktail.user %>
           <%= image_tag("https://cdn.pixabay.com/photo/2016/09/01/08/24/smiley-1635449_960_720.png", class: "card-cocktail-user avatar avatar-small avatar-round dropdown-toggle") %></div>
         <% end %>
 

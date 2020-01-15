@@ -25,7 +25,7 @@
       </div>
 
       <div class="card-detail-info">
-        <% if @cocktail.user.avatar.attached? %>
+        <% if @cocktail.user && @cocktail.user.avatar.attached? %>
           <%= cl_image_tag @cocktail.user.avatar.key, class: "avatar avatar-large avatar-round  dropdown-toggle" %>
         <% end %>
         <h3>Ingredients</h3>
