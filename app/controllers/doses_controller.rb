@@ -7,7 +7,8 @@ class DosesController < ApplicationController
                     description: dose_params[:description])
 
     @dose.cocktail = @cocktail
-    @dose.ingredient = dose_ingredient(dose_params[:ingredient])[0]
+    dose_ingredient(dose_params[:ingredient])[0]
+    @dose.ingredient = @ingredient
 
     if @dose.save
       redirect_to cocktail_path(@cocktail)
@@ -31,11 +32,11 @@ class DosesController < ApplicationController
 
   def dose_ingredient(ingredient)
     ing = Ingredient.where(name: ingredient.downcase)
-    if ing
-      return ing
-    else
+    if ing.empty?
       new_ing = Ingredient.create(name: ingredient.downcase)
-      return new_ing
+      @ingredient = new_ing
+    else
+      @ingredient = ing
     end
   end
 end
