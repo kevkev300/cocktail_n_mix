@@ -13,10 +13,12 @@
 .btn-main {
   background-color: $color-main;
   color: $light-gray;
+  border: 1px solid $color-main;
 
   &:hover {
     background-color: $color-main;
     color: $light-gray;
+    border: 1px solid $color-main;
   }
 }
 

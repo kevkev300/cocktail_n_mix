@@ -7,10 +7,11 @@
 
       <div class="form-inputs">
         <div>
-          <%= f.input :email,
+          <%= f.input :email, label: "Username",
           required: true,
           autofocus: true,
-          input_html: { autocomplete: "email" }%>
+          # input_html: { autocomplete: "email" },
+          placeholder: "cocktail_lover123"%>
         </div>
 
         <div>
