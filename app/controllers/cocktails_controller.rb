@@ -1,4 +1,5 @@
 class CocktailsController < ApplicationController
+  before_action :authenticate_user!, only: :new
   before_action :find_cocktail, only: [:show, :destroy, :like_unlike]
 
   # basic CRUD
