@@ -1,4 +1,10 @@
 <div class="container">
   <h1>These cocktails were created by you</h1>
-  <%= render 'layouts/cocktail-list' %>
+  <% if current_user.cocktails.empty? %>
+    <div style="text-align: center, padding-top: 20px">
+      <%= link_to "Create your first cocktail", new_cocktail_path, class: "btn-base btn-main btn-full-width" %>
+    </div>
+  <% else %>
+    <%= render 'layouts/cocktail-list' %>
+  <% end %>
 </div>

@@ -1,4 +1,10 @@
 <div class="container">
   <h1>That's what you sip most</h1>
-  <%= render 'layouts/cocktail-list' %>
+  <% if current_user.cocktails.empty? %>
+    <div style="text-align: center, padding-top: 20px">
+      <%= link_to "Like your first cocktail", "/#cocktail-list", class: "btn-base btn-main btn-full-width" %>
+    </div>
+  <% else %>
+    <%= render 'layouts/cocktail-list' %>
+  <% end %>
 </div>
