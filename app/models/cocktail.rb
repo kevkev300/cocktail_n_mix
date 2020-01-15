@@ -1,8 +1,8 @@
 class Cocktail < ApplicationRecord
   has_many_attached :photos
 
-  has_many :favorites
-  has_many :doses
+  has_many :favorites, dependent: :delete_all
+  has_many :doses, dependent: :delete_all
   has_many :ingredients, through: :doses
   belongs_to :user, optional: true
 
