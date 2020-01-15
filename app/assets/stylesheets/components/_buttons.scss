@@ -16,7 +16,7 @@
 
   &:hover {
     background-color: $color-main;
-    color: $color-background;
+    color: $light-gray;
   }
 }
 
@@ -29,5 +29,6 @@
     border: 1px solid;
     background-color: $color-background;
     color: $color-main;
+    transition: opacity 0s ease;
   }
 }
