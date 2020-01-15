@@ -2,11 +2,11 @@ require 'open-uri'
 
 # ---destroy everything---
 puts 'Destroying all the data...'
-User.destroy_all
-Cocktail.destroy_all
 Favorite.destroy_all
 Dose.destroy_all
+Cocktail.destroy_all
 Ingredient.destroy_all
+User.destroy_all
 
 
 # create users with cocktails & favorites
