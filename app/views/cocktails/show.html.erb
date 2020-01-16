@@ -32,7 +32,12 @@
         <ul>
           <% @cocktail.doses.each do |dose| %>
             <li>
-              <p><strong><%= dose.ingredient.name %>:</strong> <%= dose.amount %> <%= dose.unit %> <%= dose.description %>
+              <p><strong><%= dose.ingredient.name %></strong>
+                <%= dose.amount if dose.amount.to_i > 0 %>
+                <%= dose.unit if dose.unit != "none" %>
+                <% unless dose.description.nil? || dose.description.empty? %>
+                  (<%= dose.description %>)
+                <% end %>
 
                 <!-- let owner of cocktail destroy doses -->
                 <% if current_user == @cocktail.user %>
